@@ -187,6 +187,7 @@ public class PostgresqlDefinitionProvider : IDefinitionProvider
 
     public async Task Initialize()
     {
+        Console.WriteLine("init");
         await EnsureAllTablesAreCreated();
         var latestManifest = await _bungieApiAccess.Destiny2.GetDestinyManifest();
 
@@ -280,6 +281,7 @@ public class PostgresqlDefinitionProvider : IDefinitionProvider
         await postgreDbConnection.OpenAsync();
         await ExecuteQueryAsync(postgreDbConnection, PostgresqlQueries.CreateManifestTable);
         await ExecuteQueryAsync(postgreDbConnection, PostgresqlQueries.CreateManifestVersionTable);
+        await postgreDbConnection.CloseAsync();
     }
 
     private async Task DownloadAndStoreLatestManifest(DestinyManifest latestManifest)

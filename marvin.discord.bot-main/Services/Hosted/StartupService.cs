@@ -181,7 +181,7 @@ namespace Marvin.Bot.Services.Hosted
                 await _interactionService.AddModulesAsync(Assembly.GetEntryAssembly(), _serviceProvider);
 
                 // This registers all the above found SlashCommands to this specific guild, for testing.
-                await _interactionService.RegisterCommandsToGuildAsync(886500502060302357, false);
+                await _interactionService.RegisterCommandsToGuildAsync(343597435433779202, false);
             }
             catch (Exception ex)
             {
